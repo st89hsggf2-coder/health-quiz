@@ -18,7 +18,12 @@
         #result { margin-top: 20px; display: none; padding: 20px; background: #fff; border: 2px solid #27ae60; border-radius: 10px; }
         .strong { color: #d35400; font-weight: bold; background: #fff5eb; padding: 2px 5px; }
         .moderate { color: #2980b9; font-weight: bold; }
-        .contact-btn { display: inline-block; margin-top: 10px; padding: 8px 15px; background: #00c300; color: white; text-decoration: none; border-radius: 5px; font-size: 0.9em; }
+        
+        /* 按鈕樣式 */
+        .link-group { margin-top: 15px; display: flex; flex-wrap: wrap; gap: 10px; }
+        .line-btn { display: inline-block; padding: 10px 18px; background: #06C755; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 0.9em; }
+        .spot-btn { display: inline-block; padding: 10px 18px; background: #000; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 0.9em; }
+        .ig-btn { display: inline-block; padding: 10px 18px; background: #E1306C; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 0.9em; }
     </style>
 </head>
 <body>
@@ -31,10 +36,14 @@
     <div class="info-card">
         📍 <b>雙十總店：</b>新北市板橋區雙十路三段52號<br>
         📞 <b>聯絡電話：</b>(02) 2254-0613<br>
-        🔗 <a href="https://www.instagram.com/dailycare_1994/" target="_blank">追蹤 Instagram</a> | <a href="https://spot.line.me/detail/524730462346680710" target="_blank">LINE 熱點</a>
+        <div class="link-group">
+            <a href="https://lin.ee" class="line-btn" target="_blank">💬 官方 LINE</a>
+            <a href="https://spot.line.me" class="spot-btn" target="_blank">📍 LINE 熱點</a>
+            <a href="https://www.instagram.com" class="ig-btn" target="_blank">📸 Instagram</a>
+        </div>
     </div>
 
-    <!-- 測驗題目 (同前次內容) -->
+    <!-- 測驗題目 -->
     <div class="section">
         <label>您的年齡與性別</label>
         <div style="display: flex; gap: 10px;">
@@ -74,7 +83,7 @@
 <script>
     function analyze() {
         const gender = document.getElementById('gender').value;
-        let report = "<h3>💊 您的營養補充清單：</h3><ul>";
+        let report = "<h3>📊 您的營養補充清單：</h3><ul>";
         
         const data = [
             { id: 'q1', n: 'B群', d: '改善體力與痠痛' },
@@ -85,17 +94,22 @@
             { id: 'q6', n: '維生素 C+E', d: '抗壓美妍' }
         ];
 
+        let hasAdvice = false;
         data.forEach(item => {
             let score = parseInt(document.getElementById(item.id).value);
             if (score >= 4) {
                 report += `<li><span class="strong">❗ 強烈補充：</span>${item.n} (${item.d})</li>`;
+                hasAdvice = true;
             } else if (score === 3) {
                 report += `<li><span class="moderate">⚠️ 適量補充：</span>${item.n}</li>`;
+                hasAdvice = true;
             }
         });
 
+        if(!hasAdvice) report += "<li>目前狀態良好，維持均衡飲食即可！</li>";
+
         report += "</ul><hr><p>以上內容僅供參考，歡迎預約<b>廣欣藥師</b>諮詢正確用法！</p>";
-        report += '<a href="https://spot.line.me/detail/524730462346680710" class="contact-btn">💬 立即諮詢專業藥師</a>';
+        report += '<a href="https://lin.ee" class="line-btn">💬 私訊藥師諮詢詳情</a>';
         
         document.getElementById('result').innerHTML = report;
         document.getElementById('result').style.display = "block";
