@@ -39,13 +39,13 @@
         📍 <b>雙十總店：</b>新北市板橋區雙十路三段52號<br>
         📞 <b>聯絡電話：</b>(02) 2254-0613<br>
         <div class="link-group">
-            <a href="https://lin.ee/KurqVtK" class="line-official-btn" target="_blank">🟢 官方 LINE</a>
+            <a href="https://lin.ee/09JAHR8" class="line-official-btn" target="_blank">🟢 官方 LINE</a>
             <a href="https://line.me/ti/g2/JstZ5iZlWVep1oEBdpGV1WAXqY6Xa-333qkm2w?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="line-community-btn" target="_blank">👥 加入社群</a>
             <a href="https://spot.line.me" class="spot-btn" target="_blank">📍 LINE 熱點</a>
         </div>
     </div>
 
-    <!-- 測驗內容 -->
+    <!-- 測驗題目 -->
     <div class="section">
         <label>基本資料評估</label>
         <div style="display: flex; gap: 10px;">
@@ -59,7 +59,6 @@
 
     <div class="section">
         <p style="font-size: 0.85em; color: #666;">評分：1 (無症狀) / 3 (偶爾發生) / 5 (頻繁嚴重)</p>
-        
         <label>Q1: 體力與痠痛 (精疲力竭、下午斷電、肩頸緊繃？)</label>
         <select id="q1"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select>
         <br><br>
@@ -69,7 +68,7 @@
         <label>Q3: 腸道環境 (排便不順、容易脹氣、換季過敏？)</label>
         <select id="q3"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select>
         <br><br>
-        <label id="q4_label">Q4: 生理順暢 (排尿斷續、夜尿或私密處困擾？)</label>
+        <label>Q4: 生理順暢 (排尿斷續、夜尿或私密處困擾？)</label>
         <select id="q4"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select>
         <br><br>
         <label>Q5: 免疫與修復 (換季易感冒、傷口癒合慢？)</label>
@@ -79,7 +78,6 @@
         <select id="q6"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select>
     </div>
 
-    <!-- 安全性排除 -->
     <div class="section">
         <label>安全性檢查 (請勾選確認項目)</label>
         <div class="safe-hint"><input type="checkbox" id="s1"> 我目前沒有服用抗凝血劑 (Warfarin)</div>
@@ -103,7 +101,7 @@
         let safeWarning = "";
 
         if (!s1 || !s2 || !s3) {
-            safeWarning = "<p style='color:red; font-weight:bold; font-size:0.9em;'>⚠️ 警告：您可能有特殊用藥狀況，在服用高劑量補充品前，請務必先與廣欣藥師諮詢！</p>";
+            safeWarning = "<p style='color:red; font-weight:bold; font-size:0.9em;'>⚠️ 警告：您可能有特殊用藥狀況，在服用補充品前，請務必先與廣欣藥師諮詢！</p>";
         }
 
         const items = [
@@ -127,10 +125,10 @@
             }
         });
 
-        if(!hasData) report += "<li>您的狀態非常平衡，建議維持目前良好的生活習慣！</li>";
+        if(!hasData) report += "<li>目前狀態良好，請繼續保持健康生活！</li>";
 
-        report += "</ul><hr><p style='font-size:0.9em; color:#666;'>※ 本報告由 AI 輔助生成，僅供營養參考。詳細劑量與服用方法建議諮詢藥局現場藥師。</p>";
-        report += '<div class="result-footer"><a href="https://lin.ee/KurqVtK" class="line-official-btn">💬 點我傳送報告給藥師諮詢</a></div>';
+        report += "</ul><hr><p style='font-size:0.9em; color:#666;'>※ 本報告由 AI 輔助生成，僅供營養參考。</p>";
+        report += '<div class="result-footer"><a href="https://lin.ee/09JAHR8" class="line-official-btn">💬 點我私訊藥師一對一諮詢</a></div>';
         
         document.getElementById('result').innerHTML = safeWarning + report;
         document.getElementById('result').style.display = "block";
